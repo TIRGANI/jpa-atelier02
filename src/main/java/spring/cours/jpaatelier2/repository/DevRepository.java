@@ -12,7 +12,7 @@ public interface DevRepository extends JpaRepository<Developpeur, Integer> {
 	Developpeur findByEmail(String email);
 	Developpeur findByEmail(int idP);
 
-	@Query("select d from Developpeur d JOIN d.taches where t.projet.idProjet =:idP")
+	@Query("select d from Developpeur d JOIN d.tache  where tache.dev.idProjet =:idP")
 	List<Developpeur> getDevs(@Param("idP") long idProjet);
 
 }
